@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { setUserProperties } from 'firebase/analytics';
-import { borderRadius, fontFamily, fontSize, margin, positions, styled, textAlign } from '@mui/system'
+import { borderRadius, fontFamily, fontSize, margin, padding, positions, styled, textAlign } from '@mui/system'
 import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -36,8 +36,13 @@ const LogoNavigation = styled('ul')( {
 })
 
 const Search = styled('div')( {
-  top:'50%',
-  height:'50px'
+  display: 'flex',
+  height:'100px',
+  padding: '1em',
+  color: 'black',
+  justifyContent: 'center',
+  width:'100%',
+
 })
 
 const Main = styled('main')( {
@@ -126,14 +131,14 @@ export const Dashboard = () => {
         <main>
        <Search>
           
-        <TextField sx={{ left:600}}
+        <TextField 
           id="outlined-textarea"
           label="Price"
           placeholder="Enter Price"
           onChange={(event) =>
             {setSearch(event.target.value);}}/>
-                        <Button sx={{height:55,left:600}} variant='outlined'onClick={fetchData}>Search</Button> 
-                        <Button color='secondary' component={Link} to='/' sx={{left:600}} >Home</Button> 
+                        <Button sx={{height:55,}} variant='outlined'onClick={fetchData}>Search</Button> 
+                        <Button sx={{height:55}} variant='outlined' component={Link} to='/'>Home</Button>
                         
         </Search>
                 <Main>
